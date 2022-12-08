@@ -1,26 +1,44 @@
+@import url(supreme.css);
+
 body {
     background-color: #75a89d;
+    padding: 50px;
+    margin: 0 auto;
+    max-width: 100%;
   }
   
 
 .gallery {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-auto-rows: minmax(50px, auto);
-    grid-gap: 0.75rem;
+  -webkit-column-count: 4;
+  -webkit-column-gap: 1em;
+  -moz-column-gap: 1em;
+  column-gap: 1em;
+  -moz-column-count: 4;
+  column-count: 4;
+  margin: 1.5em;
 }
 
 .gallery figure {
     background: rgb(23, 255, 197);
     width: 100%;
     height: 90%;
-    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: minmax(50px, auto);
+    grid-gap: 0.5rem;
+    display: inline-block;
+    padding: 1em;
+    margin: 0 0 1em;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-shadow: 2px 2px 6px 0 rgb(27, 27, 27);
 }
 
 .gallery img {
     /* fit images to container */
     object-fit: cover;
-    height: 300px;
+    height: 450px;
     width: 100%;
 }  
 
@@ -40,8 +58,9 @@ body {
   }
   
   .gallery figcaption {
-    font-family: 'Quilon-Regular';
-    font-size: 1.2em;
+    font-family: 'supreme-bold';
+    padding-top: 1em;
+    font-size: 1.8em;
     color: #e66b6b;
     position: relative;
     text-align: center;
@@ -51,3 +70,25 @@ body {
     position: relative;
     text-align: center;
   }
+
+  @media only screen and (min-width: 321px) and (max-width: 750px){
+    .gallery {
+        -moz-column-count: 2;
+        -webkit-column-count: 2;
+        column-count: 2;
+    }
+}
+@media only screen and (min-width: 751px) and (max-width: 1000px){
+    .gallery {
+        -moz-column-count: 3;
+        -webkit-column-count: 3;
+        column-count: 3;
+    }
+}
+@media only screen and (min-width: 1001px) {
+    .gallery {
+        -moz-column-count: 4;
+        -webkit-column-count: 4;
+        column-count: 4;
+    }
+}
